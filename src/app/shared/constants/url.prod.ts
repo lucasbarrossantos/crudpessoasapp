@@ -1,0 +1,1 @@
+export const URL_PROD = 'http://crudpessoasapi.herokuapp.com/api'

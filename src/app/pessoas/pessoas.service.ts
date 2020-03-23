@@ -5,12 +5,13 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { PessoaFilter } from '../shared/models/filtros/pessoa.filter';
+import { URL_PROD } from '../shared/constants/url.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PessoasService {
-  public resourceUrl = 'http://localhost:8080/api';
+  public resourceUrl = URL_PROD;
 
   constructor(private http: HttpClient) { }
 
