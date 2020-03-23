@@ -1,0 +1,64 @@
+<div class="container-custom">
+  <p-card styleClass="ui-card-shadow">
+    <div class="ui-g">
+      <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+        <p-messages [(value)]="msgs"></p-messages>
+
+        <div class="ui-g-12">
+          <h1>Cadastro de pessoa</h1>
+        </div>
+
+        <div class="ui-g-12">
+          <h3>campos obrigatórios
+            <span style="color: brown; margin-left: 3.5px;">*</span>
+          </h3>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>Nome</label><span style="color: brown; margin-left: 3.5px;">*</span>
+          <input pInputText minlength="5" required name="nome" ngModel #nome="ngModel" [(ngModel)]="pessoa.nome"/>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>CPF</label>
+          <input pInputText name="cpf" ngModel #cpf="ngModel" [(ngModel)]="pessoa.cpf"/>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>E-mail</label>
+          <input pInputText name="email" ngModel #email="ngModel" [(ngModel)]="pessoa.email"/>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>Sexo</label>
+          <p-dropdown [options]="sexo"
+                      placeholder="Selecione"
+                      [(ngModel)]="pessoa.sexo" name="sexo">
+          </p-dropdown>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>Data de nascimento</label><span style="color: brown; margin-left: 3.5px;">*</span>
+          <p-calendar ngModel #dataNascimento="ngModel" [(ngModel)]="pessoa.dataNascimento" name="dataNascimento" 
+            required dateFormat="dd/mm/yy" [locale]="pt"
+            [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2020" [showIcon]="true"></p-calendar>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>Naturalidade</label>
+          <input pInputText name="naturalidade" ngModel #naturalidade="ngModel" [(ngModel)]="pessoa.naturalidade"/>
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+          <label>Nacionalidade</label>
+          <input pInputText name="nacionalidade" ngModel #nacionalidade="ngModel" [(ngModel)]="pessoa.nacionalidade"/>
+        </div>
+
+        <div class="ui-g-12">
+          <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class="ui-button-success btn-margin"></button>
+          <button pButton type="submit" label="Voltar" routerLink="/pessoas" class="ui-button-info"></button>
+        </div>
+      </form>
+    </div>
+  </p-card>
+</div>
